@@ -1,0 +1,3 @@
+RewriteEngine on
+RewriteBase /
+ErrorDocument 404 /jarditou_bootstrap_php/404.php
