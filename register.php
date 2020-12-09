@@ -21,12 +21,12 @@ include('header.php');?>
       <div class="col-12">
       <article>
          <p>* Ces zones sont obligatoires</p>
-         <form action="add_register.php" method="post" id="inscription"  name="inscription"  onsubmit="return verif();"> <!--balise form début du formulaire-->
+         <form action="add_register.php" method="post" id="inscription"  name="inscription"  onsubmit="return verif();" autocomplete="off"> <!--balise form début du formulaire-->
          <fieldset><!--début fieldset pour les coordonnées-->
-             <legend>Vos coordonnées</legend>
+             <legend>Inscription</legend>
              <div class="form-group">
                  <label for="nom">Votre nom* :  </label>
-                 <input type="text" id="nom" name="nom" class="form-control" placeholder="Votre nom" value="" required>
+                 <input type="text" id="nom" name="nom" class="form-control" placeholder="Votre nom"  required>
                  <div id="dnom"></div>
                  <br>
                </div>
@@ -38,19 +38,26 @@ include('header.php');?>
              
              <p>Sexe* : </p>
              <div class="form-check  form-check-inline">
-             <input type="radio" name="sexe" id="fem"  class="form-check-input" value="féminin" checked>
+             <input type="radio" name="sexe" id="fem"  class="form-check-input" value="f" checked>
              <label for="fem" >Fémimin </label> 
             </div>
+
             <div class="form-check  form-check-inline">
-              <input type="radio" name="sexe" id="masc"  class="form-check-input" value="masculin"  >
+              <input type="radio" name="sexe" id="masc"  class="form-check-input" value="h"  >
               <label for="masc" >Masculin</label><br>
-             
             </div>
+
+            <div class="form-check  form-check-inline">
+              <input type="radio" name="sexe" id="null"  class="form-check-input" value="null"  >
+              <label for="null" >Autre</label><br>
+            </div>
+            
             <div class="form-group">
-              <label for="date">Date de naissance* :  </label>
-              <input type="date" id="date" name="date" class="form-control" required>
-              <div id="ddate"></div><br>
-            </div>
+                 <label for="adresse">Adresse :  </label>
+                 <input type="text" id="adresse" name="adresse" class="form-control" placeholder="Votre adresse postale" >
+				    <div id="dadresse"></div>
+					<br>
+             </div>
 
               <div class="form-group">
                  <label for="cp">Code postal :  </label>
@@ -58,12 +65,7 @@ include('header.php');?>
 				    <div id="dcp"></div><br>
               </div>
 
-              <div class="form-group">
-                 <label for="adresse">Adresse :  </label>
-                 <input type="text" id="adresse" name="adresse" class="form-control" placeholder="Votre adresse postale" >
-				    <div id="dadresse"></div>
-					<br>
-             </div>
+
 
                <div class="form-group">
                  <label for="ville">Ville :  </label>
@@ -73,43 +75,31 @@ include('header.php');?>
 
               <div class="form-group">
                  <label for="email">Email :  </label>
-                 <input type="email" id="email" name="email" class="form-control" placeholder="votre Email"  required>
+                 <input type="email" id="email" name="email" class="form-control" placeholder="votre Email"  autocomplete="off" required>
                 <div id="demail"></div><br>
              </div>
 
-                </fieldset><!--fin fieldset pour les coordonnées-->
-     
-         <fieldset><!--début fieldset pour la demande-->
-             <legend>Votre demande</legend>
              <div class="form-group">
-          <label for="mescommandes"> Sujet* : </label>  
-         
-          <select name="mescommandes" id="mescommandes" class="form-control">
-              <option value="">Choisissez</option>
-                 <option value="Mes commandes">Mes commandes</option>
-                 <option value="question">Question sur un produit</option>
-                 <option value="Réclamation">Réclamation</option>
-                 <option value="Autres">Autres</option>
-             </select>
-             <div id="dmescommandes"></div><br>
+                 <label for="confirmemail">Confirmer votre email :  </label>
+                 <input type="email" id="confirmemail" name="confirmemail" class="form-control" placeholder="votre Email" autocomplete="off" required>
+                <div id="dconfirmemail"></div><br>
              </div>
 
              <div class="form-group">
-             <label for="question">Votre question* : </label>
-             <textarea name="question"  id="question" class="form-control" rows="2" cols="20" required></textarea> 
-            <div id="dquestion"></div><br>
-         </div>
-         </fieldset><!--fin fieldset pour la demande-->
-         <br>
+                 <label for="password">Mot de passe : (votre mot de passe doit contenir au minimum 12 caractéres dont une majuscule un chiffre et un symbole) </label>
+                 <input type="password" id="password" name="password" class="form-control" placeholder="Votre mot de passe" autocomplete="off" required>
+                <div id="dpassword"></div><br>
+             </div>
 
-         <div class="form-group">
+             <div class="form-group">
+                 <label for="confirpassword">Confirmer votre email :  </label>
+                 <input type="password" id="confirpassword" name="confirmpassword" class="form-control" placeholder="Votre mot de passe" autocomplete="off" required>
+                <div id="dconfirpassword"></div><br>
+             </div>
+                </fieldset><!--fin fieldset pour les coordonnées-->
      
-            <div class="custom-control">
-         <input type="checkbox" class="custom-control-input" id="cgu"  name="cgu" required >
-          <label class="custom-control-label" for="cgu">* J'accepte le traitement informatique de ce formulaire.</label>     
-         <div id="dcgu"></div><br>
-        </div>
-            </div>
+         <fieldset><!--début fieldset pour la demande-->
+           
             
         <div class="form-group">
               <button type="submit"  class="btn btn-dark btn-lg">Envoyer</button>    <button type="reset" class="btn btn-dark btn-lg">Annuler</button>
