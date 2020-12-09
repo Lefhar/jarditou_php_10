@@ -54,7 +54,7 @@ include('header.php');?>
             
             <div class="form-group">
                  <label for="adresse">Adresse :  </label>
-                 <input type="text" id="adresse" name="adresse" class="form-control" placeholder="Votre adresse postale" >
+                 <textarea type="text" id="adresse" name="adresse" class="form-control" placeholder="Votre adresse postale"  cols="30" rows="6"></textarea>
 				    <div id="dadresse"></div>
 					<br>
              </div>
@@ -99,7 +99,7 @@ include('header.php');?>
 
              <div class="form-group">
                  <label for="confirpassword">Confirmer votre mot de passe :  </label>
-                 <div class="input-group" id="show_hide_password">
+                 <div class="input-group" id="show_hide_password2">
              <input type="password" id="confirpassword" name="confirpassword" class="form-control" placeholder="Confirmer votre mot de passe" autocomplete="off" required="" aria-describedby="basic-addon2">
       <div class="input-group-append" id="confirpassword"> <span class="input-group-text" id="basic-addon2">
     <i class="fa fa-eye-slash" aria-hidden="true"></i></span>
