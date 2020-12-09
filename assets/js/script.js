@@ -259,33 +259,28 @@ document.addEventListener('DOMContentLoaded',function()
   }
 });
 
-document.addEventListener('DOMContentLoaded',function()
-{
-    $("#show_hide_password i").on('click', function(event) 
+$("#viewpassword").click(function(event) 
     {
-        event.preventDefault();
-        if($('#show_hide_password input').attr("type") == "text"){
-            $('#show_hide_password input').attr('type', 'password');
-            $('#show_hide_password i').addClass( "fa-eye-slash" );
-            $('#show_hide_password i').removeClass( "fa-eye" );
-        }else if($('#show_hide_password input').attr("type") == "password"){
-            $('#show_hide_password input').attr('type', 'text');
-            $('#show_hide_password i').removeClass( "fa-eye-slash" );
-            $('#show_hide_password i').addClass( "fa-eye" );
+        if($('#password').attr("type") == "text"){
+            $('#password').attr('type', 'password');
+            $('#eyepassword').addClass( "fa-eye-slash");
+            $('#eyepassword').removeClass( "fa-eye" );
+        }else if($('#password').attr("type") == "password"){
+            $('#password').attr('type', 'text');
+            $('#eyepassword').removeClass( "fa-eye-slash" );
+            $('#eyepassword').addClass( "fa-eye" );
         }
     });
-    $("#show_hide_password2 i").on('click', function(event) 
+    $("#viewconfirpassword").click(function(event) 
     {
-        event.preventDefault();
-        if($('#show_hide_password2 input').attr("type") == "text"){
-            $('#show_hide_password2 input').attr('type', 'password');
-            $('#show_hide_password2 i').addClass( "fa-eye-slash" );
-            $('#show_hide_password2 i').removeClass( "fa-eye" );
-        }else if($('#show_hide_password2 input').attr("type") == "password"){
-            $('#show_hide_password2 input').attr('type', 'text');
-            $('#show_hide_password2 i').removeClass( "fa-eye-slash" );
-            $('#show_hide_password2 i').addClass( "fa-eye" );
+        if($('#confirpassword').attr("type") == "text"){
+            $('#confirpassword').attr('type', 'password');
+            $('#eyeconfirmpassword').addClass( "fa-eye-slash" );
+            $('#eyeconfirmpassword').removeClass( "fa-eye" );
+        }else if($('#confirpassword').attr("type") == "password"){
+            $('#confirpassword').attr('type', 'text');
+            $('#eyeconfirmpassword').removeClass( "fa-eye-slash" );
+            $('#eyeconfirmpassword').addClass( "fa-eye" );
         }
     });
-});
 

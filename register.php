@@ -88,10 +88,10 @@ include('header.php');?>
              <div class="form-group">
                  <label for="password">Mot de passe : (votre mot de passe doit contenir au minimum 12 caractéres dont une majuscule un chiffre et un symbole) </label>
                
-                 <div class="input-group" id="show_hide_password">
-             <input type="password" id="password" name="password" class="form-control" placeholder="Votre mot de passe" autocomplete="off" required="" aria-describedby="basic-addon1">
-      <div class="input-group-append" id="password"> <span class="input-group-text" id="basic-addon1">
-    <i class="fa fa-eye-slash" aria-hidden="true"></i></span>
+                 <div class="input-group">
+             <input type="password" id="password" name="password" class="form-control" placeholder="Votre mot de passe" autocomplete="off" required="" aria-describedby="viewpassword">
+      <div class="input-group-append" id="password"> <span class="input-group-text" id="viewpassword">
+    <i class="fa fa-eye-slash" aria-hidden="true" id="eyepassword"></i></span>
       </div>
       <div id="dpassword"></div>
     </div>
@@ -99,10 +99,10 @@ include('header.php');?>
 
              <div class="form-group">
                  <label for="confirpassword">Confirmer votre mot de passe :  </label>
-                 <div class="input-group" id="show_hide_password2">
-             <input type="password" id="confirpassword" name="confirpassword" class="form-control" placeholder="Confirmer votre mot de passe" autocomplete="off" required="" aria-describedby="basic-addon2">
-      <div class="input-group-append" id="confirpassword"> <span class="input-group-text" id="basic-addon2">
-    <i class="fa fa-eye-slash" aria-hidden="true"></i></span>
+                 <div class="input-group" >
+             <input type="password" id="confirpassword" name="confirpassword" class="form-control" placeholder="Confirmer votre mot de passe" autocomplete="off" required="" aria-describedby="viewconfirpassword">
+      <div class="input-group-append" id="confirpassword"> <span class="input-group-text" id="viewconfirpassword">
+    <i class="fa fa-eye-slash" aria-hidden="true" id="eyeconfirmpassword"></i></span>
       </div>
     </div>
     </div>
