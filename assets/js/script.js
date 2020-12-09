@@ -271,6 +271,7 @@ $("#viewpassword").click(function(event)
             $('#eyepassword').addClass( "fa-eye" );
         }
     });
+
     $("#viewconfirpassword").click(function(event) 
     {
         if($('#confirpassword').attr("type") == "text"){
@@ -283,4 +284,92 @@ $("#viewpassword").click(function(event)
             $('#eyeconfirmpassword').addClass( "fa-eye" );
         }
     });
+
+    $( "#confirpassword" ).keyup(function() {
+        if($('#confirpassword').val() == $('#password').val()){
+            $('#confirpassword').removeClass( "is-invalid");
+            $('#confirpassword').addClass( "is-valid");
+        }else{
+            $('#confirpassword').addClass( "is-invalid");
+            $('#confirpassword').addClass( "is-valid");
+        }
+      });
+
+
+      // contrôle si password à bien un symbole majuscule et chiffre ainsi que 12 caractére
+      $( "#password" ).keyup(function() 
+    {
+        if ($( "#password" ).val().match(/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!&#*?$%@/+($_)!])/)&&$( "#password" ).val().length>=12) 
+            {
+                $('#password').removeClass( "is-invalid");
+                $('#password').addClass( "is-valid");
+                $('#dpassword').html("<div class=\"alert alert-success\" role=\"alert\">Mot de passe fort</div>")
+            }
+            else if($( "#password" ).val().length>=1)
+            {
+                $('#password').removeClass( "is-valid");
+                $('#password').addClass( "is-invalid");
+                $('#dpassword').html("<div class=\"alert alert-danger\" role=\"alert\">Mot de passe faible votre mot de passe doit contenir au minimum 12 caractéres dont une majuscule un chiffre et un symbole exemple ! & # * ? $ % @ / +</div>")
+            }else{
+
+                $('#password').removeClass( "is-valid");
+                $('#password').removeClass( "is-invalid");
+                $('#dpassword').html("");
+            }
+        
+        
+
+
+    });
+
+
+//controle si les mot de passe correspondre 
+ $( "#confirpassword" ).keyup(function() 
+ {
+     if ($( "#confirpassword" ).val()==$( "#password" ).val()) 
+         {
+             $('#confirpassword').removeClass( "is-invalid");
+             $('#confirpassword').addClass( "is-valid");
+             $('#dconfirpassword').html("<div class=\"alert alert-success\" role=\"alert\">Le mot de passe correspond</div>")
+         }
+         else if($( "#confirpassword" ).val().length>=1)
+         {
+            $('#confirpassword').removeClass( "is-valid");
+            $('#confirpassword').addClass( "is-invalid");
+             $('#dconfirpassword').html("<div class=\"alert alert-danger\" role=\"alert\">Le mot de passe ne correspond pas</div>")
+            }else{
+
+                $('#dconfirpassword').removeClass( "is-valid");
+                $('#dconfirpassword').removeClass( "is-invalid");
+                $('#dconfirpassword').html("");
+            }
+     
+ });
+
+
+ //empêche le copié coller de l'input password et confirpassword
+$( "#password" ).keydown(
+function (event)
+{
+    if (event.keyCode == 86) // Code clé du copier/coller
+    {
+        $( "#password" ).val() =="";
+        $('#dpassword').html("<div class=\"alert alert-danger\" role=\"alert\">il est interdit de faire un copier coller veuillez écrire votre mot de passe</div>")
+        event.preventDefault();
+    }
+ });
+
+ $( "#confirpassword" ).keydown(
+    function (event)
+    {
+        if (event.keyCode == 86) // Code clé du copier/coller
+        {
+            $( "#confirpassword" ).val() =="";
+            $('#dconfirpassword').html("<div class=\"alert alert-danger\" role=\"alert\">il est interdit de faire un copier coller veuillez réécrire votre mot de passe</div>")
+            event.preventDefault();
+        }
+     });
+
+
+
 
