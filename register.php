@@ -80,12 +80,6 @@ include('header.php');?>
              </div>
 
              <div class="form-group">
-                 <label for="confirmemail">Confirmer votre email :  </label>
-                 <input type="email" id="confirmemail" name="confirmemail" class="form-control" placeholder="votre Email" autocomplete="off" required>
-                <div id="dconfirmemail"></div><br>
-             </div>
-
-             <div class="form-group">
                  <label for="password">Mot de passe : (votre mot de passe doit contenir au minimum 12 caractéres dont une majuscule un chiffre et un symbole) </label>
                
                  <div class="input-group">
@@ -97,7 +91,7 @@ include('header.php');?>
     <div id="dpassword"></div>
     </div>
 
-             <div class="form-group">
+             <div class="form-group"  id="divconfirmmdp">
                  <label for="confirpassword">Confirmer votre mot de passe :  </label>
                  <div class="input-group" >
              <input type="password" id="confirpassword" name="confirpassword" class="form-control" minlength="12" placeholder="Confirmer votre mot de passe" autocomplete="off" required="" aria-describedby="viewconfirpassword">
@@ -109,13 +103,14 @@ include('header.php');?>
     </div>
                 <br>
              </div>
-                </fieldset><!--fin fieldset pour les coordonnées-->
+            
      
   
             
         <div class="form-group">
               <button type="submit"  class="btn btn-dark btn-lg">Envoyer</button>    <button type="reset" class="btn btn-dark btn-lg">Annuler</button>
          </div>
+         </fieldset><!--fin fieldset pour les coordonnées-->
      </form> <!--balise form fin du formulaire-->
       </div>
     </article>
