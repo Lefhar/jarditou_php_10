@@ -302,9 +302,10 @@ $("#viewpassword").click(function(event)
 
 
 
-      // contrôle si password à bien un symbole majuscule et chiffre ainsi que 12 caractére
+      // contrôle si password à bien un symbole majuscule et chiffre ainsi que 12 caractéres
       $(document).keyup(function(event) 
     {
+//déclaration des variables et leur valeur par defaut pour le contrôle final 
 let nom = false
 let prenom = false
 let adresse = true
@@ -313,6 +314,8 @@ let ville = true
 let email = false
 let password = false
 let confirpassword = false
+
+
            //contrôle nom 
        if($( "#nom" ).val().match(/^[a-zA-Z]{2,}$/))
        {
