@@ -305,6 +305,95 @@ $("#viewpassword").click(function(event)
       // contrôle si password à bien un symbole majuscule et chiffre ainsi que 12 caractére
       $(document).keyup(function(event) 
     {
+        var ctrprenom = /^[a-zA-Z]{2,}$/
+        var ctrcp = /^[0-9]{4,5}$/ 
+        var ctrdate = /^[0-9]{4,4}-[0-9]{2,2}-[0-9]{2,2}$/
+        var ctrquestion = /^[a-zA-Z0-9_.-]{4,}$/
+        var ctradresse = /^[a-zA-Z0-9_.-]{2,}$/
+
+           //contrôle nom 
+       if($( "#nom" ).val().match(/^[a-zA-Z]{2,}$/))
+       {
+           $('#nom').removeClass( "is-invalid");
+           $('#nom').addClass( "is-valid");
+           $('#dnom').html("<div class=\"alert alert-success\" role=\"alert\">Nom correcte</div>");
+           event.preventDefault(event);
+           $('#register').attr('onsubmit', 'return true');
+       }
+       else if($( "#nom" ).val().length>=1&&(!$( "#nom" ).val().match(/^[a-zA-Z]{2,}$/)))
+       {
+           $('#nom').removeClass( "is-valid");
+           $('#nom').addClass( "is-invalid");
+           $('#dnom').html("<div class=\"alert alert-danger\" role=\"alert\">Nom incorrecte</div>");
+           event.preventDefault(event);
+           $('#register').attr('onsubmit', 'return false');
+       }
+       else
+       {
+           $('#nom').removeClass( "is-valid");
+           $('#nom').removeClass( "is-invalid");
+           $('#dnom').html("");
+           event.preventDefault();
+           $('#register').attr('onsubmit', 'return true');
+       }//fin contrôle de la nom
+
+
+
+           //contrôle prenom 
+           if($( "#prenom" ).val().match(/^[a-zA-Z]{2,}$/))
+           {
+               $('#prenom').removeClass( "is-invalid");
+               $('#prenom').addClass( "is-valid");
+               $('#dprenom').html("<div class=\"alert alert-success\" role=\"alert\">Prenom correcte</div>");
+               event.preventDefault(event);
+               $('#register').attr('onsubmit', 'return true');
+           }
+           else if($( "#prenom" ).val().length>=1&&(!$( "#prenom" ).val().match(/^[a-zA-Z]{2,}$/)))
+           {
+               $('#prenom').removeClass( "is-valid");
+               $('#prenom').addClass( "is-invalid");
+               $('#dprenom').html("<div class=\"alert alert-danger\" role=\"alert\">Prenom incorrecte</div>");
+               event.preventDefault(event);
+               $('#register').attr('onsubmit', 'return false');
+           }
+           else
+           {
+               $('#prenom').removeClass( "is-valid");
+               $('#prenom').removeClass( "is-invalid");
+               $('#dprenom').html("");
+               event.preventDefault();
+               $('#register').attr('onsubmit', 'return true');
+           }//fin contrôle de la prenom
+    
+    
+
+           //contrôle adresse 
+           if($( "#adresse" ).val().match(/[0-9]{1,}\s+[a-z]{2,}\s+[a-z]{2,}/))
+           {
+               $('#adresse').removeClass( "is-invalid");
+               $('#adresse').addClass( "is-valid");
+               $('#dadresse').html("<div class=\"alert alert-success\" role=\"alert\">Adresse correcte</div>");
+               event.preventDefault(event);
+               $('#register').attr('onsubmit', 'return true');
+           }
+           else if($( "#adresse" ).val().length>=1&&(!$( "#adresse" ).val().match(/[0-9]{1,}\s+[a-z]{2,}\s+[a-z]{2,}/)))
+           {
+               $('#adresse').removeClass( "is-valid");
+               $('#adresse').addClass( "is-invalid");
+               $('#dadresse').html("<div class=\"alert alert-danger\" role=\"alert\">Adresse incorrecte</div>");
+               event.preventDefault(event);
+               $('#register').attr('onsubmit', 'return false');
+           }
+           else
+           {
+               $('#adresse').removeClass( "is-valid");
+               $('#adresse').removeClass( "is-invalid");
+               $('#dadresse').html("");
+               event.preventDefault();
+               $('#register').attr('onsubmit', 'return true');
+           }//fin contrôle de adresse
+    
+    
 
        //contrôle ville il existe la ville Y 
        if($( "#ville" ).val().match(/^[a-zA-Z]{1,}$/))
@@ -322,13 +411,17 @@ $("#viewpassword").click(function(event)
            $('#dville').html("<div class=\"alert alert-danger\" role=\"alert\">Ville incorrecte</div>");
            event.preventDefault(event);
            $('#register').attr('onsubmit', 'return false');
-       }else{
+       }
+       else
+       {
            $('#ville').removeClass( "is-valid");
            $('#ville').removeClass( "is-invalid");
            $('#dville').html("");
            event.preventDefault();
            $('#register').attr('onsubmit', 'return true');
        }//fin contrôle de la ville
+
+
 
         //début contrôle code postal
         if($( "#cp" ).val().match(/^[0-9]{4,5}$/))
