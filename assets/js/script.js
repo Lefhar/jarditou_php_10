@@ -312,44 +312,23 @@ $("#viewpassword").click(function(event)
            $('#ville').removeClass( "is-invalid");
            $('#ville').addClass( "is-valid");
            $('#dville').html("<div class=\"alert alert-success\" role=\"alert\">Ville correcte</div>");
-           event.preventDefault();
+           event.preventDefault(event);
+           $('#register').attr('onsubmit', 'return true');
        }
        else if($( "#ville" ).val().length>=1&&(!$( "#ville" ).val().match(/^[a-zA-Z]{1,}$/)))
        {
            $('#ville').removeClass( "is-valid");
            $('#ville').addClass( "is-invalid");
            $('#dville').html("<div class=\"alert alert-danger\" role=\"alert\">Ville incorrecte</div>");
-           event.preventDefault();
+           event.preventDefault(event);
+           $('#register').attr('onsubmit', 'return false');
        }else{
            $('#ville').removeClass( "is-valid");
            $('#ville').removeClass( "is-invalid");
-           $('#dville').html();
+           $('#dville').html("");
            event.preventDefault();
+           $('#register').attr('onsubmit', 'return true');
        }//fin contrôle de la ville
-
-
-        //debut contrôle email
-        if ($( "#email" ).val().match( /^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]{2,}[.][a-zA-Z]{2,4}$/)) 
-        {
-            $('#email').removeClass( "is-invalid");
-            $('#email').addClass( "is-valid");
-            $('#demail').html("<div class=\"alert alert-success\" role=\"alert\">Adresse email correcte</div>");
-            event.preventDefault();
-        }
-        else if($( "#email" ).val().length>=1&&(!$( "#email" ).val().match(/^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]{2,}[.][a-zA-Z]{2,4}$/)))
-        {
-            $('#email').removeClass( "is-valid");
-            $('#email').addClass( "is-invalid");
-            $('#demail').html("<div class=\"alert alert-danger\" role=\"alert\">Adresse email incorrect</div>")
-            event.preventDefault();
-        }else{
-
-            $('#email').removeClass( "is-valid");
-            $('#email').removeClass( "is-invalid");
-            $('#demail').html("");
-            event.preventDefault();
-        }//contrôle email
-
 
         //début contrôle code postal
         if($( "#cp" ).val().match(/^[0-9]{4,5}$/))
@@ -358,6 +337,7 @@ $("#viewpassword").click(function(event)
             $('#cp').addClass( "is-valid");
             $('#dcp').html("<div class=\"alert alert-success\" role=\"alert\">code postal correcte</div>");
             event.preventDefault();
+            $('#register').attr('onsubmit', 'return true');
         }
         else if($( "#cp" ).val().length>=1&&(!$( "#cp" ).val().match(/^[0-9]{4,5}$/)))
         {
@@ -365,12 +345,42 @@ $("#viewpassword").click(function(event)
             $('#cp').addClass( "is-invalid");
             $('#dcp').html("<div class=\"alert alert-danger\" role=\"alert\">code postal incorrecte</div>");
             event.preventDefault();
+            $('#register').attr('onsubmit', 'return false');
         }else{
             $('#cp').removeClass( "is-valid");
             $('#cp').removeClass( "is-invalid");
-            $('#dcp').html();
+            $('#dcp').html("");
             event.preventDefault();
+            $('#register').attr('onsubmit', 'return true');
         }//fin contrôle code postal
+
+
+
+                //debut contrôle email
+                if ($( "#email" ).val().match( /^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]{2,}[.][a-zA-Z]{2,4}$/)) 
+                {
+                    $('#email').removeClass( "is-invalid");
+                    $('#email').addClass( "is-valid");
+                    $('#demail').html("<div class=\"alert alert-success\" role=\"alert\">Adresse email correcte</div>");
+                    event.preventDefault();
+                    $('#register').attr('onsubmit', 'return true');
+                }
+                else if($( "#email" ).val().length>=1&&(!$( "#email" ).val().match(/^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]{2,}[.][a-zA-Z]{2,4}$/)))
+                {
+                    $('#email').removeClass( "is-valid");
+                    $('#email').addClass( "is-invalid");
+                    $('#demail').html("<div class=\"alert alert-danger\" role=\"alert\">Adresse email incorrect</div>")
+                    event.preventDefault();
+                    $('#register').attr('onsubmit', 'return false');
+                }else{
+        
+                    $('#email').removeClass( "is-valid");
+                    $('#email').removeClass( "is-invalid");
+                    $('#demail').html("");
+                    event.preventDefault();
+                    $('#register').attr('onsubmit', 'return false');
+
+                }//contrôle email
 
 
                // contrôle de password
@@ -382,6 +392,7 @@ $("#viewpassword").click(function(event)
                 $('#divconfirmmdp').css("display", "block");
                 $('#confirpassword').attr('type', 'password');
                 event.preventDefault();
+                $('#register').attr('onsubmit', 'return true');
             }
             else if($( "#password" ).val().length>=1&&(!$( "#password" ).val().match(/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!&#*?$%@/+($_)!])/)))
             {
@@ -390,6 +401,7 @@ $("#viewpassword").click(function(event)
                 $('#dpassword').html("<div class=\"alert alert-danger\" role=\"alert\">Mot de passe faible votre mot de passe doit contenir au minimum 12 caractéres dont une majuscule un chiffre et un symbole exemple ! & # * ? $ % @ / +</div>")
                 $('#confirpassword').attr('type', 'hidden');
                 $('#divconfirmmdp').css("display", "none");
+                $('#register').attr('onsubmit', 'return false');
                 event.preventDefault();
             }else{
 
@@ -399,6 +411,7 @@ $("#viewpassword").click(function(event)
                 $('#dconfirpassword').html("");
                 $('#divconfirmmdp').css("display", "none");
                 event.preventDefault();
+                $('#register').attr('onsubmit', 'return false');
             } // fin contrôle de password
         
 
@@ -408,18 +421,23 @@ $("#viewpassword").click(function(event)
                 $('#confirpassword').removeClass( "is-invalid");
                 $('#confirpassword').addClass( "is-valid");
                 $('#dconfirpassword').html("<div class=\"alert alert-success\" role=\"alert\">Le mot de passe correspond</div>")
+                $('#register').attr('onsubmit', 'return true');
             }
             else if($( "#confirpassword" ).val().length>=1)
             {
                $('#confirpassword').removeClass( "is-valid");
                $('#confirpassword').addClass( "is-invalid");
                 $('#dconfirpassword').html("<div class=\"alert alert-danger\" role=\"alert\">Le mot de passe ne correspond pas</div>")
-              
+                event.preventDefault();
+                $('#register').attr('onsubmit', 'return false');
+
               
                }else{
    
                    $('#dconfirpassword').removeClass( "is-valid");
                    $('#dconfirpassword').removeClass( "is-invalid");
+                   event.preventDefault();
+                   $('#register').attr('onsubmit', 'return false');
                }
          // fin contrôle de confirpassword
 
