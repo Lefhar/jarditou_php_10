@@ -38,7 +38,7 @@ include('header.php');?>
              
              <p>Sexe* : </p>
              <div class="form-check  form-check-inline">
-             <input type="radio" name="sexe" id="fem"  class="form-check-input" value="f" checked>
+             <input type="radio" name="sexe" id="fem"  class="form-check-input" value="f" >
              <label for="fem" >Fémimin </label> 
             </div>
 
@@ -48,7 +48,7 @@ include('header.php');?>
             </div>
 
             <div class="form-check  form-check-inline">
-              <input type="radio" name="sexe" id="null"  class="form-check-input" value="null"  >
+              <input type="radio" name="sexe" id="null"  class="form-check-input" value="null"  checked>
               <label for="null" >Autre</label><br>
             </div>
             
@@ -84,7 +84,7 @@ include('header.php');?>
                
                  <div class="input-group">
              <input type="password" id="password" name="password" class="form-control" placeholder="Votre mot de passe"  minlength="12"  autocomplete="off" required="" aria-describedby="viewpassword">
-      <div class="input-group-append" id="password"> <span class="input-group-text" id="viewpassword">
+      <div class="input-group-append" > <span class="input-group-text" id="viewpassword">
     <i class="fa fa-eye-slash" aria-hidden="true" id="eyepassword"></i></span>
       </div>
     </div>
@@ -95,7 +95,7 @@ include('header.php');?>
                  <label for="confirpassword">Confirmer votre mot de passe :  </label>
                  <div class="input-group" >
              <input type="password" id="confirpassword" name="confirpassword" class="form-control" minlength="12" placeholder="Confirmer votre mot de passe" autocomplete="off" required="" aria-describedby="viewconfirpassword">
-      <div class="input-group-append" id="confirpassword"> <span class="input-group-text" id="viewconfirpassword">
+      <div class="input-group-append" > <span class="input-group-text" id="viewconfirpassword">
     <i class="fa fa-eye-slash" aria-hidden="true" id="eyeconfirmpassword"></i></span>
       </div>
     </div>

@@ -305,12 +305,14 @@ $("#viewpassword").click(function(event)
       // contrôle si password à bien un symbole majuscule et chiffre ainsi que 12 caractére
       $(document).keyup(function(event) 
     {
-        var ctrprenom = /^[a-zA-Z]{2,}$/
-        var ctrcp = /^[0-9]{4,5}$/ 
-        var ctrdate = /^[0-9]{4,4}-[0-9]{2,2}-[0-9]{2,2}$/
-        var ctrquestion = /^[a-zA-Z0-9_.-]{4,}$/
-        var ctradresse = /^[a-zA-Z0-9_.-]{2,}$/
-
+let nom = false
+let prenom = false
+let adresse = true
+let cp = true
+let ville = true
+let email = false
+let password = false
+let confirpassword = false
            //contrôle nom 
        if($( "#nom" ).val().match(/^[a-zA-Z]{2,}$/))
        {
@@ -318,7 +320,7 @@ $("#viewpassword").click(function(event)
            $('#nom').addClass( "is-valid");
            $('#dnom').html("<div class=\"alert alert-success\" role=\"alert\">Nom correcte</div>");
            event.preventDefault(event);
-           $('#register').attr('onsubmit', 'return true');
+           nom = true
        }
        else if($( "#nom" ).val().length>=1&&(!$( "#nom" ).val().match(/^[a-zA-Z]{2,}$/)))
        {
@@ -326,7 +328,7 @@ $("#viewpassword").click(function(event)
            $('#nom').addClass( "is-invalid");
            $('#dnom').html("<div class=\"alert alert-danger\" role=\"alert\">Nom incorrecte</div>");
            event.preventDefault(event);
-           $('#register').attr('onsubmit', 'return false');
+           nom = false
        }
        else
        {
@@ -334,7 +336,7 @@ $("#viewpassword").click(function(event)
            $('#nom').removeClass( "is-invalid");
            $('#dnom').html("");
            event.preventDefault();
-           $('#register').attr('onsubmit', 'return true');
+           nom = false
        }//fin contrôle de la nom
 
 
@@ -346,7 +348,7 @@ $("#viewpassword").click(function(event)
                $('#prenom').addClass( "is-valid");
                $('#dprenom').html("<div class=\"alert alert-success\" role=\"alert\">Prenom correcte</div>");
                event.preventDefault(event);
-               $('#register').attr('onsubmit', 'return true');
+               prenom = true
            }
            else if($( "#prenom" ).val().length>=1&&(!$( "#prenom" ).val().match(/^[a-zA-Z]{2,}$/)))
            {
@@ -354,7 +356,7 @@ $("#viewpassword").click(function(event)
                $('#prenom').addClass( "is-invalid");
                $('#dprenom').html("<div class=\"alert alert-danger\" role=\"alert\">Prenom incorrecte</div>");
                event.preventDefault(event);
-               $('#register').attr('onsubmit', 'return false');
+               prenom = false
            }
            else
            {
@@ -362,7 +364,7 @@ $("#viewpassword").click(function(event)
                $('#prenom').removeClass( "is-invalid");
                $('#dprenom').html("");
                event.preventDefault();
-               $('#register').attr('onsubmit', 'return true');
+               prenom = false
            }//fin contrôle de la prenom
     
     
@@ -374,7 +376,7 @@ $("#viewpassword").click(function(event)
                $('#adresse').addClass( "is-valid");
                $('#dadresse').html("<div class=\"alert alert-success\" role=\"alert\">Adresse correcte</div>");
                event.preventDefault(event);
-               $('#register').attr('onsubmit', 'return true');
+               adresse = true
            }
            else if($( "#adresse" ).val().length>=1&&(!$( "#adresse" ).val().match(/[0-9]{1,}\s+[a-z]{2,}\s+[a-z]{2,}/)))
            {
@@ -382,7 +384,7 @@ $("#viewpassword").click(function(event)
                $('#adresse').addClass( "is-invalid");
                $('#dadresse').html("<div class=\"alert alert-danger\" role=\"alert\">Adresse incorrecte</div>");
                event.preventDefault(event);
-               $('#register').attr('onsubmit', 'return false');
+               adresse = false
            }
            else
            {
@@ -390,7 +392,7 @@ $("#viewpassword").click(function(event)
                $('#adresse').removeClass( "is-invalid");
                $('#dadresse').html("");
                event.preventDefault();
-               $('#register').attr('onsubmit', 'return true');
+               adresse = true
            }//fin contrôle de adresse
     
     
@@ -402,7 +404,7 @@ $("#viewpassword").click(function(event)
            $('#ville').addClass( "is-valid");
            $('#dville').html("<div class=\"alert alert-success\" role=\"alert\">Ville correcte</div>");
            event.preventDefault(event);
-           $('#register').attr('onsubmit', 'return true');
+           ville = true
        }
        else if($( "#ville" ).val().length>=1&&(!$( "#ville" ).val().match(/^[a-zA-Z]{1,}$/)))
        {
@@ -410,7 +412,7 @@ $("#viewpassword").click(function(event)
            $('#ville').addClass( "is-invalid");
            $('#dville').html("<div class=\"alert alert-danger\" role=\"alert\">Ville incorrecte</div>");
            event.preventDefault(event);
-           $('#register').attr('onsubmit', 'return false');
+           ville = false
        }
        else
        {
@@ -418,7 +420,7 @@ $("#viewpassword").click(function(event)
            $('#ville').removeClass( "is-invalid");
            $('#dville').html("");
            event.preventDefault();
-           $('#register').attr('onsubmit', 'return true');
+           ville = true
        }//fin contrôle de la ville
 
 
@@ -430,7 +432,7 @@ $("#viewpassword").click(function(event)
             $('#cp').addClass( "is-valid");
             $('#dcp').html("<div class=\"alert alert-success\" role=\"alert\">code postal correcte</div>");
             event.preventDefault();
-            $('#register').attr('onsubmit', 'return true');
+            cp = true
         }
         else if($( "#cp" ).val().length>=1&&(!$( "#cp" ).val().match(/^[0-9]{4,5}$/)))
         {
@@ -438,13 +440,13 @@ $("#viewpassword").click(function(event)
             $('#cp').addClass( "is-invalid");
             $('#dcp').html("<div class=\"alert alert-danger\" role=\"alert\">code postal incorrecte</div>");
             event.preventDefault();
-            $('#register').attr('onsubmit', 'return false');
+            cp = false
         }else{
             $('#cp').removeClass( "is-valid");
             $('#cp').removeClass( "is-invalid");
             $('#dcp').html("");
             event.preventDefault();
-            $('#register').attr('onsubmit', 'return true');
+            cp = true
         }//fin contrôle code postal
 
 
@@ -456,7 +458,7 @@ $("#viewpassword").click(function(event)
                     $('#email').addClass( "is-valid");
                     $('#demail').html("<div class=\"alert alert-success\" role=\"alert\">Adresse email correcte</div>");
                     event.preventDefault();
-                    $('#register').attr('onsubmit', 'return true');
+                    email = true
                 }
                 else if($( "#email" ).val().length>=1&&(!$( "#email" ).val().match(/^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]{2,}[.][a-zA-Z]{2,4}$/)))
                 {
@@ -464,14 +466,14 @@ $("#viewpassword").click(function(event)
                     $('#email').addClass( "is-invalid");
                     $('#demail').html("<div class=\"alert alert-danger\" role=\"alert\">Adresse email incorrect</div>")
                     event.preventDefault();
-                    $('#register').attr('onsubmit', 'return false');
+                    email = false
                 }else{
         
                     $('#email').removeClass( "is-valid");
                     $('#email').removeClass( "is-invalid");
                     $('#demail').html("");
                     event.preventDefault();
-                    $('#register').attr('onsubmit', 'return false');
+                    email = false
 
                 }//contrôle email
 
@@ -485,7 +487,7 @@ $("#viewpassword").click(function(event)
                 $('#divconfirmmdp').css("display", "block");
                 $('#confirpassword').attr('type', 'password');
                 event.preventDefault();
-                $('#register').attr('onsubmit', 'return true');
+                password = true
             }
             else if($( "#password" ).val().length>=1&&(!$( "#password" ).val().match(/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!&#*?$%@/+($_)!])/)))
             {
@@ -494,7 +496,7 @@ $("#viewpassword").click(function(event)
                 $('#dpassword').html("<div class=\"alert alert-danger\" role=\"alert\">Mot de passe faible votre mot de passe doit contenir au minimum 12 caractéres dont une majuscule un chiffre et un symbole exemple ! & # * ? $ % @ / +</div>")
                 $('#confirpassword').attr('type', 'hidden');
                 $('#divconfirmmdp').css("display", "none");
-                $('#register').attr('onsubmit', 'return false');
+                password = false
                 event.preventDefault();
             }else{
 
@@ -504,7 +506,7 @@ $("#viewpassword").click(function(event)
                 $('#dconfirpassword').html("");
                 $('#divconfirmmdp').css("display", "none");
                 event.preventDefault();
-                $('#register').attr('onsubmit', 'return false');
+                password = false
             } // fin contrôle de password
         
 
@@ -514,7 +516,8 @@ $("#viewpassword").click(function(event)
                 $('#confirpassword').removeClass( "is-invalid");
                 $('#confirpassword').addClass( "is-valid");
                 $('#dconfirpassword').html("<div class=\"alert alert-success\" role=\"alert\">Le mot de passe correspond</div>")
-                $('#register').attr('onsubmit', 'return true');
+                confirpassword = true
+
             }
             else if($( "#confirpassword" ).val().length>=1)
             {
@@ -522,18 +525,25 @@ $("#viewpassword").click(function(event)
                $('#confirpassword').addClass( "is-invalid");
                 $('#dconfirpassword').html("<div class=\"alert alert-danger\" role=\"alert\">Le mot de passe ne correspond pas</div>")
                 event.preventDefault();
-                $('#register').attr('onsubmit', 'return false');
-
+                confirpassword = false
               
                }else{
    
                    $('#dconfirpassword').removeClass( "is-valid");
                    $('#dconfirpassword').removeClass( "is-invalid");
                    event.preventDefault();
-                   $('#register').attr('onsubmit', 'return false');
+                   confirpassword = false
                }
          // fin contrôle de confirpassword
 
+         if(nom&&prenom&&adresse&cp&ville&email&&password&&confirpassword)
+       {
+                $('#register').attr('onsubmit', 'return true');
+       }
+        else
+       {
+                $('#register').attr('onsubmit', 'return false');
+      }
     });
 
 
@@ -558,6 +568,7 @@ $("#viewpassword").click(function(event)
          $('#password').attr('autocomplete','off');
          $('#confirpassword').attr('autocomplete','off');
          $('#divconfirmmdp').css("display", "none");
+         $('#register').attr('onsubmit', 'return false');
      });
 
 
