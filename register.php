@@ -21,7 +21,7 @@ include('header.php');?>
       <div class="col-12">
       <article>
          <p>* Ces zones sont obligatoires</p>
-         <form action="add_register.php" method="post" id="inscription"  name="inscription"  onsubmit="return verif();" autocomplete="off"> <!--balise form début du formulaire-->
+         <form action="add_register.php" method="post" id="register"  name="register"   autocomplete="off"> <!--balise form début du formulaire-->
          <fieldset><!--début fieldset pour les coordonnées-->
              <legend>Inscription</legend>
              <div class="form-group">

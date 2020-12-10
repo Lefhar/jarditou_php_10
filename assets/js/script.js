@@ -296,9 +296,84 @@ $("#viewpassword").click(function(event)
       });
 
 
+
       // contrôle si password à bien un symbole majuscule et chiffre ainsi que 12 caractére
-      $( "#password" ).keyup(function(event) 
+
+
+
+
+      // contrôle si password à bien un symbole majuscule et chiffre ainsi que 12 caractére
+      $(document).keyup(function(event) 
     {
+
+       //contrôle ville il existe la ville Y 
+       if($( "#ville" ).val().match(/^[a-zA-Z]{1,}$/))
+       {
+           $('#ville').removeClass( "is-invalid");
+           $('#ville').addClass( "is-valid");
+           $('#dville').html("<div class=\"alert alert-success\" role=\"alert\">Ville correcte</div>");
+           event.preventDefault();
+       }
+       else if($( "#ville" ).val().length>=1&&(!$( "#ville" ).val().match(/^[a-zA-Z]{1,}$/)))
+       {
+           $('#ville').removeClass( "is-valid");
+           $('#ville').addClass( "is-invalid");
+           $('#dville').html("<div class=\"alert alert-danger\" role=\"alert\">Ville incorrecte</div>");
+           event.preventDefault();
+       }else{
+           $('#ville').removeClass( "is-valid");
+           $('#ville').removeClass( "is-invalid");
+           $('#dville').html();
+           event.preventDefault();
+       }//fin contrôle de la ville
+
+
+        //debut contrôle email
+        if ($( "#email" ).val().match( /^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]{2,}[.][a-zA-Z]{2,4}$/)) 
+        {
+            $('#email').removeClass( "is-invalid");
+            $('#email').addClass( "is-valid");
+            $('#demail').html("<div class=\"alert alert-success\" role=\"alert\">Adresse email correcte</div>");
+            event.preventDefault();
+        }
+        else if($( "#email" ).val().length>=1&&(!$( "#email" ).val().match(/^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]{2,}[.][a-zA-Z]{2,4}$/)))
+        {
+            $('#email').removeClass( "is-valid");
+            $('#email').addClass( "is-invalid");
+            $('#demail').html("<div class=\"alert alert-danger\" role=\"alert\">Adresse email incorrect</div>")
+            event.preventDefault();
+        }else{
+
+            $('#email').removeClass( "is-valid");
+            $('#email').removeClass( "is-invalid");
+            $('#demail').html("");
+            event.preventDefault();
+        }//contrôle email
+
+
+        //début contrôle code postal
+        if($( "#cp" ).val().match(/^[0-9]{4,5}$/))
+        {
+            $('#cp').removeClass( "is-invalid");
+            $('#cp').addClass( "is-valid");
+            $('#dcp').html("<div class=\"alert alert-success\" role=\"alert\">code postal correcte</div>");
+            event.preventDefault();
+        }
+        else if($( "#cp" ).val().length>=1&&(!$( "#cp" ).val().match(/^[0-9]{4,5}$/)))
+        {
+            $('#cp').removeClass( "is-valid");
+            $('#cp').addClass( "is-invalid");
+            $('#dcp').html("<div class=\"alert alert-danger\" role=\"alert\">code postal incorrecte</div>");
+            event.preventDefault();
+        }else{
+            $('#cp').removeClass( "is-valid");
+            $('#cp').removeClass( "is-invalid");
+            $('#dcp').html();
+            event.preventDefault();
+        }//fin contrôle code postal
+
+
+               // contrôle de password
         if ($( "#password" ).val().match(/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!&#*?$%@/+($_)!])/)&&$( "#password" ).val().length>=12) 
             {
                 $('#password').removeClass( "is-invalid");
@@ -324,78 +399,55 @@ $("#viewpassword").click(function(event)
                 $('#dconfirpassword').html("");
                 $('#divconfirmmdp').css("display", "none");
                 event.preventDefault();
-            }
-        
+            } // fin contrôle de password
         
 
+        // contrôle de confirpassword
+            if ($( "#confirpassword" ).val()==$( "#password" ).val()&&$( "#password" ).val().length>=12&&$( "#confirpassword" ).val().length>=12) 
+            {
+                $('#confirpassword').removeClass( "is-invalid");
+                $('#confirpassword').addClass( "is-valid");
+                $('#dconfirpassword').html("<div class=\"alert alert-success\" role=\"alert\">Le mot de passe correspond</div>")
+            }
+            else if($( "#confirpassword" ).val().length>=1)
+            {
+               $('#confirpassword').removeClass( "is-valid");
+               $('#confirpassword').addClass( "is-invalid");
+                $('#dconfirpassword').html("<div class=\"alert alert-danger\" role=\"alert\">Le mot de passe ne correspond pas</div>")
+              
+              
+               }else{
+   
+                   $('#dconfirpassword').removeClass( "is-valid");
+                   $('#dconfirpassword').removeClass( "is-invalid");
+               }
+         // fin contrôle de confirpassword
 
     });
 
 
-//controle si les mot de passe correspondre 
- $( "#confirpassword" ).keyup(function() 
- {
-     if ($( "#confirpassword" ).val()==$( "#password" ).val()&&$( "#password" ).val().length>=12&&$( "#confirpassword" ).val().length>=12) 
-         {
-             $('#confirpassword').removeClass( "is-invalid");
-             $('#confirpassword').addClass( "is-valid");
-             $('#dconfirpassword').html("<div class=\"alert alert-success\" role=\"alert\">Le mot de passe correspond</div>")
-         }
-         else if($( "#confirpassword" ).val().length>=1)
-         {
-            $('#confirpassword').removeClass( "is-valid");
-            $('#confirpassword').addClass( "is-invalid");
-             $('#dconfirpassword').html("<div class=\"alert alert-danger\" role=\"alert\">Le mot de passe ne correspond pas</div>")
-           
-           
-            }else{
-
-                $('#dconfirpassword').removeClass( "is-valid");
-                $('#dconfirpassword').removeClass( "is-invalid");
-            }
-     
- });
 
 
 
 
- //empêche le copié coller de l'input password et confirpassword
+ //empêche le copié coller de l'input email password et confirpassword
 
- $( "#email" ).keydown(
-    function (event)
-    {
-        if (event.keyCode == 86) // Code clé du copier/coller
-        {
-            $( "#email" ).val() =="";
-            $('#demail').html("<div class=\"alert alert-danger\" role=\"alert\">il est interdit de faire un copier coller veuillez écrire votre email</div>")
-            event.preventDefault();
-        }
+
+     $(document).ready(function () {
+        $('#email').bind('paste', function (e) {
+           e.preventDefault();
+        });
+        $('#password').bind('paste', function (e) {
+            e.preventDefault();
+         });
+         $('#confirpassword').bind('paste', function (e) {
+            e.preventDefault();
+         });
+         $('#email').attr('autocomplete','off');
+         $('#password').attr('autocomplete','off');
+         $('#confirpassword').attr('autocomplete','off');
+         $('#divconfirmmdp').css("display", "none");
      });
-
-
-
-$( "#password" ).keydown(
-function (event)
-{
-    if (event.keyCode == 86) // Code clé du copier/coller
-    {
-        $( "#password" ).val() =="";
-        $('#dpassword').html("<div class=\"alert alert-danger\" role=\"alert\">il est interdit de faire un copier coller veuillez écrire votre mot de passe</div>")
-        event.preventDefault();
-    }
- });
-
- $( "#confirpassword" ).keydown(
-    function (event)
-    {
-        if (event.keyCode == 86) // Code clé du copier/coller
-        {
-            $( "#confirpassword" ).val() =="";
-            $('#dconfirpassword').html("<div class=\"alert alert-danger\" role=\"alert\">il est interdit de faire un copier coller veuillez réécrire votre mot de passe</div>")
-            event.preventDefault();
-        }
-     });
-
 
 
 
