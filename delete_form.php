@@ -1,7 +1,10 @@
 <?php
-ini_set('display_errors', 1); 
-error_reporting(E_ALL);  
-include_once('db.php');
+if(file_exists("db.php")){include("db.php");}
+if(file_exists("connect.php")){include("connect.php");}
+if(empty($row['u_mail'])){
+  header("Location:login.php");
+  exit();
+}
 
 $pro_id = (int)$_POST['pro_id'];
 

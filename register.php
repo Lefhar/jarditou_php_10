@@ -5,7 +5,12 @@
     <?php 
 define("title","Inscription");
 define("description","Formulaire pour vous inscrires");
-include('header.php');?>
+include('header.php');
+if(!empty($row['u_mail'])){
+  header("Location:index.php");
+  exit();
+}
+?>
 
     <!--
         content

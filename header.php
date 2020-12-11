@@ -59,11 +59,15 @@
                 <li class="nav-item">
                     <a class="nav-link" href="accueil.php">A propos</a>
                 </li>
-                <?php if(session_status() !== PHP_SESSION_ACTIVE) {
+                <?php if (empty($_SESSION["login"])&&empty($_SESSION["jeton"])) {
                     echo '<li class="nav-item">
                     <a class="nav-link" href="login.php">Mon compte</a>
                     </li>';
                     
+                }else{
+                    echo '<li class="nav-item">
+                    <a class="nav-link" href="account.php">'.$row['u_nom'].' '.$row['u_prenom'].'</a>
+                    </li>';
                 }
                     ?>
                 

@@ -40,7 +40,9 @@ include('header.php');
               </ul>
             </li>
          </ul>
+         <?php if(!empty($row['u_mail'])){?>
          <a class="btn btn-success float-right" href="add_form.php">Ajouter un produit</a>
+         <?php } ?>
         </div>
                 
                 <div class="table-responsive">

@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `role` int(1) NOT NULL DEFAULT '0' COMMENT 'role 0 client 1 vendeur',
   `u_password` varchar(60) NOT NULL COMMENT 'mot de passe',
   `u_hash` varchar(255) NOT NULL COMMENT 'sel',
-  `u_jeton_connect` varchar(12) DEFAULT NULL COMMENT 'jeton de connexion',
+  `u_jeton_connect` varchar(60) DEFAULT NULL COMMENT 'jeton de connexion',
   `u_d_create` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'date de création du compte',
   `u_d_connect` datetime DEFAULT NULL COMMENT 'date de connection',
   `u_d_test_connect` datetime DEFAULT NULL COMMENT 'date de teste de connection si échoué',

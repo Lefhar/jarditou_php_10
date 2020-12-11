@@ -5,7 +5,12 @@
     <?php 
 define("title","Connexion");
 define("description","Formulaire pour vous connecter");
-include('header.php');?>
+include('header.php');
+if(!empty($_SESSION["login"])&&!empty($_SESSION["jeton"])){
+  header("Location:index.php");
+  exit();
+}
+?>
 
     <!--
         content

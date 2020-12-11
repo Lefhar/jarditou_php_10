@@ -1,5 +1,10 @@
 <?php 
-include_once('db.php');
+if(file_exists("db.php")){include("db.php");}
+if(file_exists("connect.php")){include("connect.php");}
+if(empty($row['u_mail'])){
+  header("Location:login.php");
+  exit();
+}
 //on vérifie les valeurs entré le nombre de caractére et pour les valeur numérique aussi exemple pro_stock, pro_prix etc
 if(is_numeric($_POST['pro_prix'])&&!empty($_POST['cat_id'])
 &&!empty($_POST['pro_libelle'])&&strlen($_POST['pro_libelle'])<=200

@@ -5,7 +5,12 @@
     <?php 
 define("title","Ajout produit");
 define("description","Formulaire d'ajout d'un produit");
-include('header.php');?>
+include('header.php');
+if(empty($row['u_mail'])){
+    header("Location:login.php");
+    exit();
+}
+?>
 
     <!--
         content

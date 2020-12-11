@@ -27,6 +27,16 @@ function error($id){
     Une erreur c\'est produite lors de votre inscription vérifiez que tout est correct!
   </div>';
     break;
+    case 6;
+    $error = '<div class="alert alert-danger" role="alert">
+   Identifiant ou mot de passe faux!
+  </div>';
+    break;
+    case 7;
+    $error = '<div class="alert alert-danger" role="alert">
+   Vous allez devoir attendre 15 minutes avant un nouvelle essai!
+  </div>';
+    break;
     default:
     $error ="";
 break;
