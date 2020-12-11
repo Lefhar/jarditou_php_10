@@ -58,10 +58,7 @@
                 </li>
                 <?php if(session_status() !== PHP_SESSION_ACTIVE) {
                     echo '<li class="nav-item">
-                    <a class="nav-link" href="register.php">Inscription</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="sigin.php">Connexion</a>
+                    <a class="nav-link" href="login.php">Mon compte</a>
                     </li>';
                     
                 }
@@ -83,4 +80,5 @@
               </div>
         </div>
     </nav>
+    <div class="container-fluid"><div class="row"><img src="src/img/promotion.jpg" class="w-100" alt="Jarditou" title="Jarditou"></div></div>
     </header> 

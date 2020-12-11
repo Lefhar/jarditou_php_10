@@ -9,7 +9,6 @@ include_once('db.php');
         content
 
     -->   
-    <div class="container-fluid"><div class="row"><img src="src/img/promotion.jpg" class="w-100" alt="Jarditou" title="Jarditou"></div></div>
     <div class="container-fluid">
 
    

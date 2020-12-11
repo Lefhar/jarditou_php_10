@@ -11,7 +11,6 @@ include('header.php');?>
         content
 
     -->   
-    <div class="container-fluid"><div class="row"><img src="src/img/promotion.jpg" class="w-100" alt="Jarditou" title="Jarditou"></div></div>
     <div class="container">
    
     <div class="row">
@@ -21,6 +20,8 @@ include('header.php');?>
       <div class="col-12">
       <article>
          <p>* Ces zones sont obligatoires</p>
+         <?php if(!empty($_GET['e'])){echo error((int)$_GET['e']);}?>
+
          <form action="add_register.php" method="post" id="register"  name="register"   autocomplete="off"> <!--balise form début du formulaire-->
          <fieldset><!--début fieldset pour les coordonnées-->
              <legend>Inscription</legend>
@@ -36,7 +37,7 @@ include('header.php');?>
                  <div id="dprenom"></div><br>
                </div>
              
-             <p>Sexe* : </p>
+             <p>Sexe : </p>
              <div class="form-check  form-check-inline">
              <input type="radio" name="sexe" id="fem"  class="form-check-input" value="f" >
              <label for="fem" >Fémimin </label> 
@@ -69,9 +70,16 @@ include('header.php');?>
 
                <div class="form-group">
                  <label for="ville">Ville :  </label>
-                 <input type="text" id="ville" class="form-control" name="ville">
+                 <input type="tel" id="ville" class="form-control" name="ville">
 				  <div id="dville"></div><br>
                </div>
+
+               <div class="form-group">
+                 <label for="tel">Téléphone :  </label>
+                 <input type="tel" id="tel" class="form-control" name="tel"    pattern="[0-9]{10}">
+				    <div id="dtel"></div><br>
+              </div>
+
 
               <div class="form-group">
                  <label for="email">Email :  </label>

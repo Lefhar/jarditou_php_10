@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `u_cp` int(5) DEFAULT NULL COMMENT 'code postal',
   `u_city` varchar(10) DEFAULT NULL COMMENT 'ville',
   `u_tel` int(10) DEFAULT NULL COMMENT 'téléphone',
-  `sexe` enum('h','f','null') DEFAULT NULL,
+  `u_sexe` enum('h','f','null') DEFAULT NULL,
   `u_mail` varchar(254) NOT NULL COMMENT 'email ',
   `role` int(1) NOT NULL DEFAULT '0' COMMENT 'role 0 client 1 vendeur',
   `u_password` varchar(60) NOT NULL COMMENT 'mot de passe',
