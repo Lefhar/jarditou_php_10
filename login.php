@@ -23,10 +23,10 @@ include('header.php');?>
          <p>* Ces zones sont obligatoires</p>
          <?php if(!empty($_GET['e'])){echo error((int)$_GET['e']);}?>
          <p>Vous n'avez pas de compte ? <a href="register.php">Vous inscrires</a></p>
-         <form action="" method="post" id="connexion"  name="connexion"   autocomplete="off"> <!--balise form début du formulaire-->
+         <form action="" method="post"  id="connexion"  name="connexion"  autocomplete="off"> <!--balise form début du formulaire-->
          <fieldset><!--début fieldset pour les coordonnées-->
              <legend>Connexion</legend>
-    
+    <input type="hidden" id="connect"  name="connect" value="yes">
 
               <div class="form-group">
                  <label for="email">Email* :  </label>
@@ -38,7 +38,7 @@ include('header.php');?>
                  <label for="password">Mot de passe* :  </label>
                
                  <div class="input-group">
-             <input type="password" id="password" name="password" class="form-control" placeholder="Votre mot de passe"  minlength="12"  autocomplete="off" required="" aria-describedby="viewpassword">
+             <input type="password" id="password" name="password" class="form-control" placeholder="Votre mot de passe"  minlength="12"  autocomplete="off" required="" aria-describedby="viewpassword" required>
       <div class="input-group-append" > <span class="input-group-text" id="viewpassword">
     <i class="fa fa-eye-slash" aria-hidden="true" id="eyepassword"></i></span>
       </div>

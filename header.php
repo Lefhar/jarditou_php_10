@@ -1,4 +1,7 @@
-<?php if(file_exists("function.php")){include("function.php");}?>
+<?php if(file_exists("function.php")){include("function.php");}
+ if(file_exists("db.php")){include("db.php");}
+ if(file_exists("connect.php")){include("connect.php");}
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>

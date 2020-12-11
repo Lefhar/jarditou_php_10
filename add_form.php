@@ -3,7 +3,6 @@
 
     -->   
     <?php 
-    include_once('db.php');
 define("title","Ajout produit");
 define("description","Formulaire d'ajout d'un produit");
 include('header.php');?>

@@ -2,7 +2,6 @@
 define("title","Nos produits");
 define("description","Notre gamme de produits");
 include('header.php');
-include_once('db.php');
 ?>
 
     <!--

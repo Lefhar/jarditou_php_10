@@ -43,7 +43,7 @@ if(!empty($number)&&$number>=10){
 }
 function password($password,$salt){
   $resultat="";
-  if(!empty($number)&&!empty($password)){
+  if(!empty($salt)&&!empty($password)){
 $resultat = "?@".$salt."_@".$password."_@".$salt;
 
   }

@@ -1,9 +1,6 @@
-<!--
-        header
+<?php 
+include('db.php');
 
-    -->   
-    <?php 
-    include_once('db.php');
     $pro_id = $_GET['pro_id'];
     $query = $db->prepare("SELECT pro_id, cat_nom , cat_id, pro_libelle, pro_prix, pro_couleur, pro_photo, pro_description, pro_bloque, pro_stock, pro_ref, pro_d_ajout FROM produits join categories on cat_id = pro_cat_id WHERE pro_id = :pro_id ORDER BY pro_libelle");
     $query->bindParam(":pro_id", $pro_id);
