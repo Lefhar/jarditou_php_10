@@ -48,6 +48,18 @@ function error($id)
           </div>';
             break;
 
+            case 8;
+            $error = '<div class="alert alert-success" role="alert">
+          Merci vous pouvez à présent vous connecter!
+          </div>';
+            break;
+            case 9;
+            $error = '<div class="alert alert-danger" role="alert">
+          Vous devez valider votre adresse email veuillez vérifier votre boite email merci!
+          </div>';
+            break;
+
+
             default:
             $error ="";
             break;

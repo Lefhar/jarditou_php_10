@@ -25,15 +25,23 @@ else
         if(!empty($_POST['email'])&&!empty($_POST['password'])&&!empty($_POST['connect'])&&$_POST['connect']=="yes")
         {
 
-            $query = $db->prepare("SELECT u_mail, u_password, u_hash, u_essai_connect, u_d_test_connect FROM users WHERE u_mail = :u_mail ");
+            $query = $db->prepare("SELECT u_mail, u_password, u_hash, u_essai_connect, u_d_test_connect, u_mail_confirm FROM users WHERE u_mail = :u_mail ");
             $query->bindParam(":u_mail", $_POST['email']);
             $query->execute();
             $row = $query->fetch(PDO::FETCH_ASSOC);
             $query->closeCursor();//on libére la mémoire
 
+
+            if($row['u_mail_confirm']==0){
+                header("Location:login.php?e=9");
+                 exit();
+              }
+
+
             // si ya eu plusieurs essai infructeux on fait patienter 15 minutes
             $endTime = strtotime("+15 minutes",strtotime($row['u_d_test_connect'] ));
             $time = strtotime(date('Y-m-d H:i:s'));
+
             if($row['u_essai_connect']>=3&&$endTime>=$time){
                 header("Location:login.php?e=7");
                  exit();
