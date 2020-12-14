@@ -1,5 +1,13 @@
 <?php
 session_start();
+
+//si ya un cookie jarditou on recupére login et pass
+if(!empty($_COOKIE['jarditou'])){
+    $cookie = explode(":",$_COOKIE['jarditou']);
+    $_SESSION['login'] = $cookie[0];
+    $_SESSION['jeton'] = $cookie[1];
+}
+
 if (session_status() == PHP_SESSION_ACTIVE&&!empty($_SESSION["login"])&&!empty($_SESSION["jeton"])) {
  
  $query = $db->prepare("SELECT u_nom, u_prenom, u_d_connect, u_essai_connect, u_d_test_connect, u_mail FROM users WHERE u_mail = :u_mail and u_jeton_connect =:u_jeton_connect");
@@ -54,6 +62,7 @@ else
                     {
                     $_SESSION['login'] = $row['u_mail'];
                     $_SESSION['jeton'] = $jeton;
+                    setcookie("jarditou", "". $row['u_mail'].":".$jeton."", time()+(60*60*24*7)); 
                     header("Location:index.php");
                     exit();
                     }
