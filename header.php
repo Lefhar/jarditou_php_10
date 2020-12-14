@@ -65,12 +65,17 @@
                     </li>';
                     
                 }else{
-                    echo '<li class="nav-item">
-                    <a class="nav-link" href="account.php">'.$row['u_nom'].' '.$row['u_prenom'].'</a>
-                    </li>';
+                    echo '<li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    '.$row['u_nom'].' '.$row['u_prenom'].'
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="nav-link" href="account.php">Mon compte</a>
+                            <a class="nav-link" href="deconnexion.php">Déconnexion</a>
+                    </div>
+                  </li>';
                 }
                     ?>
-                
             </ul>
             <!--
                 barre de recherche dans la nav bar

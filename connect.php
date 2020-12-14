@@ -62,7 +62,9 @@ else
                     {
                     $_SESSION['login'] = $row['u_mail'];
                     $_SESSION['jeton'] = $jeton;
+                    if (!empty($_POST['remember'])&&$_POST['remember']=="on") {
                     setcookie("jarditou", "". $row['u_mail'].":".$jeton."", time()+(60*60*24*7)); 
+                    }
                     header("Location:index.php");
                     exit();
                     }
