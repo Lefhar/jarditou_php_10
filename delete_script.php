@@ -1,7 +1,7 @@
 <?php
 if(file_exists("db.php")){include("db.php");}
 if(file_exists("connect.php")){include("connect.php");}
-if(empty($row['u_mail'])){
+if(empty($connect['u_mail'])){
   header("Location:login.php");
   exit();
 }

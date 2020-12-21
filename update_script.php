@@ -2,7 +2,12 @@
 //pour afficher les erreurs php
 ini_set('display_errors', 1); 
 error_reporting(E_ALL);  
-include_once('db.php');
+if(file_exists("db.php")){include("db.php");}
+if(file_exists("connect.php")){include("connect.php");}
+if(empty($connect['u_mail'])){
+  header("Location:login.php");
+  exit();
+}
 // var_dump($_POST);
 // exit();
 //on appel par l'id pour s'assurer que l'id est correcte

@@ -43,7 +43,9 @@ include('header.php');?>
     <p class="card-text">Référence : <?php echo $row['pro_ref']?></p>
     <p class="card-text">catégorie : <?php echo $row['cat_nom']?></p>
     <p class="card-text">Ajouté le : <?php echo $row['pro_d_ajout']?></p>
+    <?php if(!empty($connect['u_mail'])){?>
     <a href="update_form.php?pro_id=<?php echo $row['pro_id'];?>" class="btn btn-primary">Modifier</a>   <a href="delete_form.php?pro_id=<?php echo $row['pro_id'];?>&del=1"   class="btn btn-danger">Supprimer le produit</a>
+   <?php }?>
     <?php $query->closeCursor(); ?>
   </div>
 </div>
