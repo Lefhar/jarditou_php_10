@@ -55,7 +55,12 @@ function error($id)
             break;
             case 9;
             $error = '<div class="alert alert-danger" role="alert">
-          Vous devez valider votre adresse email veuillez vérifier votre boite email merci!
+          Vous devez valider votre adresse email veuillez vérifier votre boite email merci ! rien reçu ? <a href="login.php?resend=yes">renvoyer la confirmation</a> 
+          </div>';
+            break;
+            case 10;
+            $error = '<div class="alert alert-danger" role="alert">
+          une erreur c\'est produite nous avons pas pus renvoyer la confirmation!
           </div>';
             break;
 

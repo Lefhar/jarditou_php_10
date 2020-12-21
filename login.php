@@ -27,6 +27,13 @@ if(!empty($_SESSION["login"])&&!empty($_SESSION["jeton"])){
       <article>
          <p>* Ces zones sont obligatoires</p>
          <?php if(!empty($_GET['e'])){echo error((int)$_GET['e']);}?>
+
+
+<!-- 
+    form pour login
+ -->
+         <?php if(empty($_GET['resend'])&&empty($_GET['lospassword'])){?>
+
          <p>Vous n'avez pas de compte ? <a href="register.php">Vous inscrires</a></p>
          <form action="" method="post"  id="connexion"  name="connexion"  autocomplete="off"> <!--balise form début du formulaire-->
          <fieldset><!--début fieldset pour les coordonnées-->
@@ -68,6 +75,37 @@ if(!empty($_SESSION["login"])&&!empty($_SESSION["jeton"])){
          </div>
          </fieldset><!--fin fieldset pour les coordonnées-->
      </form> <!--balise form fin du formulaire-->
+
+<?php //fermeture de la condition
+} 
+?>
+
+
+     <!-- 
+         Form resend confirmation email
+          -->
+
+          <?php if(!empty($_GET['resend'])&&empty($_GET['lostpassword'])){?>
+          <form action="resend_confirm_mail_script.php" method="GET"  id="connexion"  name="connexion"  autocomplete="off"> <!--balise form début du formulaire-->
+         <fieldset><!--début fieldset pour les coordonnées-->
+             <legend>Entrez votre email</legend>
+
+              <div class="form-group">
+                 <label for="email">Email* :  </label>
+                 <input type="email" id="email" name="email" class="form-control" placeholder="votre Email"  autocomplete="off" required>
+                <div id="demail"></div><br>
+             </div>
+
+
+        <div class="form-group">
+              <button type="submit"  class="btn btn-dark btn-lg">Envoyer</button>   
+         </div>
+         </fieldset><!--fin fieldset pour les coordonnées-->
+     </form> 
+
+        <?php //fermeture  de resend email
+          }
+          ?>
       </div>
     </article>
 

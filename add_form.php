@@ -27,7 +27,7 @@ if(empty($row['u_mail'])){
             
        <legend> Formulaire d'ajout d'un produit </legend>
        <?php if(!empty($_GET['e'])){echo error((int)$_GET['e']);}?>
-     <form action="add_script.php" method="POST" id="ajout_produit"  name="ajout_produit"  > <!--balise form début du formulaire-->
+     <form action="add_script.php" method="POST" id="ajout_produit"  name="ajout_produit"  enctype="multipart/form-data"> <!--balise form début du formulaire-->
         <fieldset>
 
         <div class="form-group row">
@@ -57,7 +57,7 @@ if(empty($row['u_mail'])){
         <div class="form-group row">
         <label for="pro_img" class="col-sm-2 col-form-label col-12">Image </label>
         <div class="col-sm-10 col-12"> 
-        <input type="text" class="form-control" id="pro_img"  name="pro_img" > <br>
+        <input type="file" id="pro_img"  name="pro_img" > <br>
         </div>
         </div>   
 

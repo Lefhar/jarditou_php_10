@@ -32,7 +32,7 @@ include('header.php');?>
     -->
     <div class="col-12">
             <article>
-            <?php if(empty($_GET['del'])){?>
+
     <div class="card m-4" >
   <img  class="img-fluid" width="160" src="src/img/<?php echo $row['pro_id'];?>.<?php echo $row['pro_photo'];?>" alt="<?php echo ''.$row['cat_nom'].' '.$row['pro_libelle'].' '.$row['pro_couleur'].'';?>" title="<?php echo ''.$row['cat_nom'].' '.$row['pro_libelle'].' '.$row['pro_couleur'].'';?>">
   <div class="card-body">
@@ -43,27 +43,11 @@ include('header.php');?>
     <p class="card-text">Référence : <?php echo $row['pro_ref']?></p>
     <p class="card-text">catégorie : <?php echo $row['cat_nom']?></p>
     <p class="card-text">Ajouté le : <?php echo $row['pro_d_ajout']?></p>
-    <a href="update_form.php?pro_id=<?php echo $row['pro_id'];?>" class="btn btn-primary">Modifier</a>   <a href="detail.php?pro_id=<?php echo $row['pro_id'];?>&del=1"   class="btn btn-danger">Supprimer le produit</a>
+    <a href="update_form.php?pro_id=<?php echo $row['pro_id'];?>" class="btn btn-primary">Modifier</a>   <a href="delete_form.php?pro_id=<?php echo $row['pro_id'];?>&del=1"   class="btn btn-danger">Supprimer le produit</a>
     <?php $query->closeCursor(); ?>
   </div>
 </div>
 
-     <?php }elseif(!empty($_GET['del'])&&$_GET['del']==1){?>
-
-        <!-- formulaire de suppréssion du produit si get del ==1 -->
-    <div class="card m-4" >
-        <img  class="img-fluid" width="160" src="src/img/<?php echo $row['pro_id'];?>.<?php echo $row['pro_photo'];?>" alt="<?php echo ''.$row['cat_nom'].' '.$row['pro_libelle'].' '.$row['pro_couleur'].'';?>" title="<?php echo ''.$row['cat_nom'].' '.$row['pro_libelle'].' '.$row['pro_couleur'].'';?>">
-     <div class="card-body">
-        <h1 class="card-title">Etes vous sûr de vouloir supprimer <?php echo ''.$row['cat_nom'].' '.$row['pro_libelle'].' '.$row['pro_couleur'].'';?> de la base de données ?</h1>
-            <form action="delete_form.php" method="POST">
-                <input id="del" name="del" type="hidden" value="1">
-                <input id="confirm" name="confirm" type="hidden" value="1">
-                <input id="pro_id" name="pro_id" type="hidden" value="<?php echo $row['pro_id'];?>">
-                <button class="btn btn-danger">Supprimer</button>  <a href="index.php" class="btn btn-success">Annuler</a> 
-            </form>
-   </div>
-</div>
- <?php } ?>
   </article>
 
     </div>

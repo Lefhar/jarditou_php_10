@@ -13,11 +13,13 @@ try {
   $mail->AddAddress('staff@fullsharez.com', 'John Doe');
   $mail->SetFrom('staff@fullsharez.com', 'First Last');
   $mail->AddReplyTo('staff@fullsharez.com', 'First Last');
-  		//		$mail->IsSMTP();
-$mail->Host = '91.234.194.145';
-$mail->SMTPAuth = true; // Si votre serveur requiert une authentification.
-$mail->Username = 'staff@fullsharez.com';
-$mail->Password = '4vefg7kk7116';
+  			$mail->IsSMTP();
+      $mail->Host = 'smtp.laposte.net';
+      $mail->Port       = 587;    
+      $mail->SMTPAuth = true; // Si votre serveur requiert une authentification.
+      $mail->SMTPSecure = "ssl";  
+      $mail->Username = 'igor.popoviche@laposte.net';
+      $mail->Password = '4vefg7kK';//
   $mail->Subject = 'PHPMailer Test Subject via mail(), advanced';
   $mail->AltBody = 'To view the message, please use an HTML compatible email viewer!'; // optional - MsgHTML will create an alternate automatically
   $mail->MsgHTML(file_get_contents('contents.html'));

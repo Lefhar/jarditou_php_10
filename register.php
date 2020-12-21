@@ -6,7 +6,7 @@
 define("title","Inscription");
 define("description","Formulaire pour vous inscrires");
 include('header.php');
-if(!empty($row['u_mail'])){
+if(!empty($connect['u_mail'])){
   header("Location:index.php");
   exit();
 }

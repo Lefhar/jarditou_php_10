@@ -67,7 +67,7 @@
                 }else{
                     echo '<li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    '.$row['u_nom'].' '.$row['u_prenom'].'
+                    '.$connect['u_nom'].' '.$connect['u_prenom'].'
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="nav-link" href="account.php">Mon compte</a>
